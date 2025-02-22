@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">ProgMobileDevices</string>
+    <string name="load_activity_title">DriveNext</string>
+    <string name="load_activity_subtitle">Поможем найти твою следующую поездку</string>
+    <string name="load_activity_image_description">LoadImageDescription</string>
 </resources>
