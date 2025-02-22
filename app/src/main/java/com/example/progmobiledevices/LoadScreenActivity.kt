@@ -29,7 +29,7 @@ class LoadScreenActivity : AppCompatActivity() {
 
             if (hasInternetConnection()) {
                 // Есть интернет - переходим на MainActivity
-                val intent = Intent(this@LoadScreenActivity, MainActivity::class.java)
+                val intent = Intent(this@LoadScreenActivity, WelcomeScreen::class.java)
                 startActivity(intent)
             } else {
                 // Нет интернета - переходим на NoInternetActivity
