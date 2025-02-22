@@ -3,4 +3,8 @@
     <string name="load_activity_title">DriveNext</string>
     <string name="load_activity_subtitle">Поможем найти твою следующую поездку</string>
     <string name="load_activity_image_description">LoadImageDescription</string>
+    <string name="no_internet_connection_activity_svg_description">SvgDescription</string>
+    <string name="no_internet_connection_activity_title">Нет подключения к интернету</string>
+    <string name="no_internet_connection_activity_subtitle">Проверьте подключение и повторите попытку</string>
+    <string name="no_internet_connection_activity_button_title">Повторить попытку</string>
 </resources>
