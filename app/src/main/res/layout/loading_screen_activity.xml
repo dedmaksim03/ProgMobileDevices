@@ -6,33 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/logoTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/load_activity_title"
-        android:textColor="#673AB7"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="24dp"/>
-
-    <!-- Подзаголовок -->
-    <TextView
-        android:id="@+id/subtitleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/load_activity_subtitle"
-        android:textSize="14sp"
-        android:textColor="#757575"
-        app:layout_constraintTop_toBottomOf="@id/logoTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="24dp" />
-
     <!-- Изображение -->
     <ImageView
         android:id="@+id/splashImageView"
@@ -49,5 +22,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/logoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/load_activity_title"
+        android:textColor="@color/purple"
+
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="24dp"/>
+
+    <!-- Подзаголовок -->
+    <TextView
+        android:id="@+id/subtitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/load_activity_subtitle"
+        android:textSize="14sp"
+        android:textColor="@color/gray"
+        app:layout_constraintTop_toBottomOf="@id/logoTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

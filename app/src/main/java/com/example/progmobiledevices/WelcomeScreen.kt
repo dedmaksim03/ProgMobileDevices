@@ -1,11 +1,16 @@
 package com.example.progmobiledevices
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.viewpager2.widget.ViewPager2
 import com.example.progmobiledevices.databinding.ActivityWelcomeScreenBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -28,16 +33,57 @@ class WelcomeScreen : AppCompatActivity() {
 
         binding.viewPager.adapter = viewPagerAdapter // Set the adapter
 
-        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-            // tab.text = "Screen ${position + 1}" // Убираем текст
-        }.attach()
+        // Установка слушателя для ViewPager2
+        binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                updateIndicators(position)
+                if (position == 2){
+                    binding.nextButton.text = getString(R.string.welcome_screen_last_button)
+                }
+                else{
+                    binding.nextButton.text = getString(R.string.welcome_screen_next_button)
+                }
 
-        // Установите количество вкладок
-        val tabCount = 3 // Или adapter.itemCount
-        for (i in 0 until tabCount) {
-            binding.tabLayout.getTabAt(i)?.let { tab ->
-                tab.view.isClickable = true // Сделайте вкладки кликабельными
             }
+        })
+
+        // Обработчик кнопки "Далее"
+        binding.nextButton.setOnClickListener {
+            val currentItem = binding.viewPager.currentItem
+            if (currentItem < viewPagerAdapter.itemCount - 1) {
+                binding.viewPager.currentItem = currentItem + 1
+            } else {
+                // Тут добавить переменную, вход в приложение выполнен
+                val intent = Intent(this@WelcomeScreen, SelectRegistrationOrLogin::class.java)
+                startActivity(intent)
+            }
+        }
+
+        // Инициализация индикаторов
+        updateIndicators(0)
+    }
+
+    private fun updateIndicators(position: Int) {
+        val indicators = arrayOf(
+            binding.root.findViewById<View>(R.id.indicator1)!!,
+            binding.root.findViewById<View>(R.id.indicator2)!!,
+            binding.root.findViewById<View>(R.id.indicator3)!!
+        )
+
+        for (i in indicators.indices) {
+            val indicator = indicators[i]
+            val layoutParams = indicator.layoutParams as LinearLayout.LayoutParams
+
+            if (i == position) {
+                layoutParams.width = 100
+                indicator.background = ContextCompat.getDrawable(this, R.drawable.welcome_screen_custom_tab_indicator)
+            } else {
+                layoutParams.width = 30
+                indicator.background = ContextCompat.getDrawable(this, R.drawable.welcome_screen_inactive_tab_indicator)
+            }
+
+            indicator.layoutParams = layoutParams
         }
     }
 }

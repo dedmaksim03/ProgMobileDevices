@@ -16,6 +16,9 @@
         android:theme="@style/Theme.ProgMobileDevices"
         tools:targetApi="31">
         <activity
+            android:name=".SelectRegistrationOrLogin"
+            android:exported="false" />
+        <activity
             android:name=".WelcomeScreen"
             android:exported="false" />
         <activity

@@ -1,10 +1,9 @@
-<!-- res/drawable/custom_tab_indicator.xml -->
+<!-- res/drawable/active_tab_indicator.xml -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <solid android:color="#503092"/> <!-- Цвет активного индикатора (темно-фиолетовый) -->
-    <corners android:radius="4dp"/> <!-- Радиус закругления углов -->
-    <size android:height="8dp"/> <!-- Толщина индикатора -->
-    <padding
-        android:left="8dp"
-        android:right="8dp"/>
+    <solid android:color="@color/purple"/>
+    <corners android:radius="4dp"/>
+    <size
+        android:width="24dp"
+        android:height="8dp"/>
 </shape>
