@@ -16,7 +16,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class WelcomeScreen : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeScreenBinding
-    private lateinit var viewPagerAdapter: ViewPagerAdapter // Corrected type
+    private lateinit var viewPagerAdapter: ViewPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +24,7 @@ class WelcomeScreen : AppCompatActivity() {
         setContentView(binding.root)
 
         // Инициализация ViewPagerAdapter
-        viewPagerAdapter = ViewPagerAdapter(this) // Pass the FragmentActivity
+        viewPagerAdapter = ViewPagerAdapter(this)
 
         // Add fragments to the adapter
         viewPagerAdapter.addFragment(WelcomeScreen_page1())
@@ -54,14 +54,30 @@ class WelcomeScreen : AppCompatActivity() {
             if (currentItem < viewPagerAdapter.itemCount - 1) {
                 binding.viewPager.currentItem = currentItem + 1
             } else {
-                // Тут добавить переменную, вход в приложение выполнен
+
+                val sharedPreferences = getSharedPreferences("Preferences", MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putString("firstLaunch", "false")
+                editor.apply() // или editor.commit()
+
                 val intent = Intent(this@WelcomeScreen, SelectRegistrationOrLogin::class.java)
                 startActivity(intent)
             }
         }
 
+        binding.topText.setOnClickListener {
+            val sharedPreferences = getSharedPreferences("Preferences", MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("firstLaunch", "false")
+            editor.apply()
+
+            val intent = Intent(this@WelcomeScreen, SelectRegistrationOrLogin::class.java)
+            startActivity(intent)
+        }
+
         // Инициализация индикаторов
         updateIndicators(0)
+
     }
 
     private fun updateIndicators(position: Int) {

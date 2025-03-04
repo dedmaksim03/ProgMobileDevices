@@ -23,14 +23,30 @@ class LoadScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.loading_screen_activity)
 
+
+
+        val sharedPreferences = getSharedPreferences("Preferences", MODE_PRIVATE)
+
+//        val editor = sharedPreferences.edit()
+//        editor.putString("firstLaunch", "true")
+//        editor.apply() // или editor.commit()
+
+        val firstLaunch = sharedPreferences.getString("firstLaunch", "true")
+
         // Запускаем корутину для проверки подключения к интернету
         CoroutineScope(Dispatchers.Main).launch {
             delay(SPLASH_DELAY) // Даем экрану загрузки немного времени показаться
 
             if (hasInternetConnection()) {
                 // Есть интернет - переходим на MainActivity
-                val intent = Intent(this@LoadScreenActivity, WelcomeScreen::class.java)
-                startActivity(intent)
+                if (firstLaunch == "true"){
+                    val intent = Intent(this@LoadScreenActivity, WelcomeScreen::class.java)
+                    startActivity(intent)
+                }
+                else{
+                    val intent = Intent(this@LoadScreenActivity, SelectRegistrationOrLogin::class.java)
+                    startActivity(intent)
+                }
             } else {
                 // Нет интернета - переходим на NoInternetActivity
                 val intent = Intent(this@LoadScreenActivity, NoInternetConnection::class.java)

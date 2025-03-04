@@ -16,6 +16,21 @@
         android:theme="@style/Theme.ProgMobileDevices"
         tools:targetApi="31">
         <activity
+            android:name=".Registration_activity_final"
+            android:exported="false" />
+        <activity
+            android:name=".Registration_activity_3"
+            android:exported="false" />
+        <activity
+            android:name=".Registration_activity_2"
+            android:exported="false" />
+        <activity
+            android:name=".Registration_activity_1"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".SelectRegistrationOrLogin"
             android:exported="false" />
         <activity

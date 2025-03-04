@@ -20,7 +20,58 @@
     <string name="welcome_screen_page_3_subtitle">Выбирай понравившееся среди сотен доступных автомобилей</string>
     <string name="welcome_screen_next_button">Далее</string>
     <string name="welcome_screen_last_button">Поехали!</string>
+    <string name="welcome_screen_last_top_text">Пропустить</string>
 
     <string name="select_registration_or_login_button_login">Войти</string>
     <string name="select_registration_or_login_button_registration">Зарегистрироваться</string>
+
+    <string name="login_activity_title">Войдите в аккаунт</string>
+    <string name="login_activity_subtitle">Пожалуйста, введите свои данные</string>
+    <string name="login_activity_email_title">Электронная почта</string>
+    <string name="login_activity_email_subtitle">Введите электронную почту</string>
+    <string name="login_activity_password_title">Пароль</string>
+    <string name="login_activity_password_subtitle">Введите пароль</string>
+    <string name="login_activity_button_login">Войти</string>
+    <string name="login_activity_button_google">Войти через Google</string>
+    <string name="login_activity_forgot_password">Забыли пароль?</string>
+    <string name="login_activity_registration">Зарегистироваться</string>
+
+    <string name="registration_activity_title">Создать аккаунт</string>
+    <string name="registration_activity_email_title">Электронная почта</string>
+    <string name="registration_activity_email_subtitle">Введите электронную почту</string>
+    <string name="registration_activity_password_title">Придумайте пароль</string>
+    <string name="registration_activity_password_subtitle">Введите пароль</string>
+    <string name="registration_activity_password_retry_title">Повторите пароль</string>
+    <string name="registration_activity_password_retry_subtitle">Введите пароль</string>
+    <string name="registration_activity_checkbox">Я согласен с условиями обслуживания и политикой конфиденциальности</string>
+    <string name="registration_activity_button_next">Далее</string>
+
+    <string name="registration_activity_2_title">Создать аккаунт</string>
+    <string name="registration_activity_2_second_name_title">Фамилия</string>
+    <string name="registration_activity_2_second_name_subtitle">Введите фамилию</string>
+    <string name="registration_activity_2_name_title">Имя</string>
+    <string name="registration_activity_2_name_subtitle">Введите имя</string>
+    <string name="registration_activity_2_third_name_title">Отчество</string>
+    <string name="registration_activity_2_third_name_subtitle">Введите отчество</string>
+    <string name="registration_activity_2_date_title">Дата рождения</string>
+    <string name="registration_activity_2_date_subtitle">DD/MM/YYYY</string>
+    <string name="registration_activity_2_radio_title">Пол</string>
+    <string name="registration_activity_2_radio_first">Мужской</string>
+    <string name="registration_activity_2_radio_second">Женский</string>
+    <string name="registration_activity_2_button_next">Далее</string>
+
+    <string name="registration_activity_3_title">Создать аккаунт</string>
+    <string name="registration_activity_3_subtitle">Добавление фотографии поможет владельцам и арендаторам узнать друг друга, когда они будут забирать машину</string>
+    <string name="registration_activity_3_license_number_title">Номер водительского удостоверения</string>
+    <string name="registration_activity_3_license_number_subtitle">0000000000</string>
+    <string name="registration_activity_3_date_title">Дата выдачи</string>
+    <string name="registration_activity_3_date_subtitle">DD/MM/YYYY</string>
+    <string name="registration_activity_3_input_license_title">Загрузите фото водительского удостоверения</string>
+    <string name="registration_activity_3_input_license_subtitle">Загрузить фото</string>
+    <string name="registration_activity_3_input_passport_title">Загрузите фото паспорта</string>
+    <string name="registration_activity_3_input_passport_subtitle">Загрузить фото</string>
+
+    <string name="registration_activity_final_title">Пользуйтесь с удовольствием</string>
+    <string name="registration_activity_final_title_2">Поздравляем</string>
+    <string name="registration_activity_final_subtitle">Вы успешно зарегистрировались.  Обработка ваших персональных данных займет около двух часов. Спасибо за ожидание.</string>
 </resources>
