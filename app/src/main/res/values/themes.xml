@@ -6,4 +6,9 @@
     </style>
 
     <style name="Theme.ProgMobileDevices" parent="Base.Theme.ProgMobileDevices" />
+
+    <style name="HintAppearance" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">2sp</item>  <!-- Уменьшаем размер шрифта -->
+        <item name="android:textColor">@color/purple</item> <!-- Изменяем цвет -->
+    </style>
 </resources>

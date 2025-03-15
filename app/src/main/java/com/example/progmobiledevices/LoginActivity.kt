@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Patterns
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -35,21 +36,87 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
 
-//        binding.buttonLogin.isEnabled = false
-//
-//        val textWatcher = object : TextWatcher {
-//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-//
-//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-//                // Проверяем, заполнены ли оба поля
-//                binding.buttonLogin.isEnabled = !binding.emailInnerTextField.text.isNullOrEmpty() && !binding.passwordInnerTextField.text.isNullOrEmpty()
-//            }
-//
-//            override fun afterTextChanged(s: Editable?) {}
-//        }
-//
-//        binding.emailInnerTextField.addTextChangedListener(textWatcher)
-//        binding.passwordInnerTextField.addTextChangedListener(textWatcher)
+        binding.buttonLogin.isEnabled = false
+
+        var isPasswordValid = false
+        var isEmailValid = false
+
+        val textWatcher = object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val email = binding.emailInnerTextField.text.toString()
+                val password = binding.passwordInnerTextField.text.toString()
+
+                val isEmailValid = Patterns.EMAIL_ADDRESS.matcher(email).matches()
+                val isPasswordValid = password.length > 8
+
+                // Отображаем ошибку, если email невалидный
+                if (!isEmailValid) {
+                    binding.emailTextField.error = "Некорректный формат электронной почты"
+                } else {
+                    binding.emailTextField.error = null // Очищаем ошибку, если email валиден
+                    binding.emailTextField.isErrorEnabled = false
+                }
+
+                if (!isPasswordValid) {
+                    binding.passwordTextField.error = "Пароль должен быть более 8 символов"
+                } else {
+                    binding.passwordTextField.error = null
+                    binding.passwordTextField.isErrorEnabled = false
+                }
+
+                // Включаем кнопку, только если оба поля заполнены и валидны
+                binding.buttonLogin.isEnabled = isEmailValid && isPasswordValid
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        }
+
+        binding.emailInnerTextField.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val email = binding.emailInnerTextField.text.toString()
+
+                isEmailValid = Patterns.EMAIL_ADDRESS.matcher(email).matches()
+
+                // Отображаем ошибку, если email невалидный
+                if (!isEmailValid) {
+                    binding.emailTextField.error = "Некорректный формат электронной почты"
+                } else {
+                    binding.emailTextField.error = null // Очищаем ошибку, если email валиден
+                    binding.emailTextField.isErrorEnabled = false
+                }
+
+                // Включаем кнопку, только если оба поля заполнены и валидны
+                binding.buttonLogin.isEnabled = isEmailValid && isPasswordValid
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
+        binding.passwordInnerTextField.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val password = binding.passwordInnerTextField.text.toString()
+
+                isPasswordValid = password.length > 8
+
+                if (!isPasswordValid) {
+                    binding.passwordTextField.error = "Пароль должен быть более 8 символов"
+                } else {
+                    binding.passwordTextField.error = null
+                    binding.passwordTextField.isErrorEnabled = false
+                }
+
+                // Включаем кнопку, только если оба поля заполнены и валидны
+                binding.buttonLogin.isEnabled = isEmailValid && isPasswordValid
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
 
     }
 }
