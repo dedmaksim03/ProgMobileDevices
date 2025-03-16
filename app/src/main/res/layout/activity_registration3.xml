@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Registration_activity_1">
+    tools:context=".RegistrationActivity1">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout4"
@@ -67,28 +67,29 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/main_photo"
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/profile_photo" />
+                app:srcCompat="@drawable/profile_photo"
+                android:scaleType="centerCrop"/>
 
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-                app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                app:layout_constraintBottom_toBottomOf="@+id/main_photo"
+                app:layout_constraintEnd_toEndOf="@+id/main_photo"
                 app:srcCompat="@drawable/part_of_profile_photo"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/password2"
+            android:id="@+id/driveLicenseTextField"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -103,8 +104,9 @@
             app:layout_constraintTop_toBottomOf="@+id/password_retry_title">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/driveLicenseInnerTextField"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
+                android:layout_height="50dp"
                 android:fontFamily="@font/montserrat_medium"
                 android:inputType="textVisiblePassword"
                 android:textColor="@color/gray"
@@ -125,7 +127,7 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/password222"
+            android:id="@+id/dateTextField"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -134,14 +136,16 @@
             app:boxCornerRadiusBottomStart="8dp"
             app:boxCornerRadiusTopEnd="8dp"
             app:boxCornerRadiusTopStart="8dp"
+            app:startIconDrawable="@drawable/calendar_days"
             app:hintEnabled="true"
             app:layout_constraintTop_toBottomOf="@+id/password_retr2">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dateInnerTextField"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
+                android:layout_height="50dp"
                 android:fontFamily="@font/montserrat_medium"
-                android:inputType="textVisiblePassword"
+                android:inputType="date"
                 android:textColor="@color/gray"
                 android:textSize="14sp" />
 
@@ -157,7 +161,7 @@
             android:textColor="@color/gray_text_input"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password2" />
+            app:layout_constraintTop_toBottomOf="@+id/driveLicenseTextField" />
 
         <TextView
             android:id="@+id/textView6"
@@ -169,7 +173,7 @@
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password222" />
+            app:layout_constraintTop_toBottomOf="@+id/dateTextField" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout6"
@@ -180,13 +184,14 @@
             app:layout_constraintTop_toBottomOf="@+id/textView6">
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/driver_license"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/upload" />
+                app:srcCompat="@drawable/upload"
+                android:scaleType="centerCrop"/>
 
             <TextView
                 android:id="@+id/textView8"
@@ -220,13 +225,14 @@
             app:layout_constraintTop_toBottomOf="@+id/textView7">
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/passport"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/upload" />
+                app:srcCompat="@drawable/upload"
+                android:scaleType="centerCrop"/>
 
             <TextView
                 android:id="@+id/textView9"
@@ -252,7 +258,8 @@
         android:text="@string/registration_activity_2_button_next"
         android:textColor="@color/white"
         android:textSize="14sp"
-        app:backgroundTint="@color/purple"
+        app:backgroundTint="@color/button_color"
+        android:enabled="false"
         app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

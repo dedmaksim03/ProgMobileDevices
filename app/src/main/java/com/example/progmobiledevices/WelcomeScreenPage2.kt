@@ -13,10 +13,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [WelcomeScreen_page2.newInstance] factory method to
+ * Use the [WelcomeScreenPage2.newInstance] factory method to
  * create an instance of this fragment.
  */
-class WelcomeScreen_page2 : Fragment() {
+class WelcomeScreenPage2 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -44,12 +44,12 @@ class WelcomeScreen_page2 : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment WelcomeScreen_page2.
+         * @return A new instance of fragment WelcomeScreenPage2.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            WelcomeScreen_page2().apply {
+            WelcomeScreenPage2().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

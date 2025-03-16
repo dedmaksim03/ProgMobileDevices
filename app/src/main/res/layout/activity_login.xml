@@ -50,7 +50,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="348dp"
+            android:layout_height="370dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
@@ -75,8 +75,9 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/emailInnerTextField"
                     android:layout_width="match_parent"
-                    android:layout_height="44dp"
+                    android:layout_height="50dp"
                     android:fontFamily="@font/montserrat_medium"
+                    android:background="@drawable/edit_text_background"
                     android:inputType="textVisiblePassword"
                     android:textColor="@color/gray"
                     android:textSize="14sp" />
@@ -94,7 +95,6 @@
                 app:boxCornerRadiusTopEnd="8dp"
                 app:boxCornerRadiusTopStart="8dp"
                 app:endIconMode="password_toggle"
-                app:hintEnabled="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/password_title">
@@ -102,7 +102,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordInnerTextField"
                     android:layout_width="match_parent"
-                    android:layout_height="44dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edit_text_background"
                     android:fontFamily="@font/montserrat_medium"
                     android:inputType="textPassword"
                     android:textColor="@color/gray"
@@ -126,10 +127,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_medium"
-                android:layout_marginTop="7dp"
-                android:textSize="14sp"
                 android:text="@string/login_activity_password_title"
                 android:textColor="@color/gray_text_input"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/emailTextField" />
 
@@ -156,7 +156,8 @@
                 android:layout_marginTop="60dp"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                android:backgroundTint="@color/purple"
+                android:backgroundTint="@color/button_color"
+                android:enabled="false"
 
                 app:cornerRadius="8dp"
                 app:layout_constraintEnd_toEndOf="parent"

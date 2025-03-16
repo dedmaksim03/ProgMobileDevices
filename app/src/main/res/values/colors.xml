@@ -10,4 +10,5 @@
     <color name="black_text">#1A1A1A</color>
     <color name="white">#FFFFFFFF</color>
     <color name="purple">#2A1246</color>
+    <color name="purple_presses">#54238c</color>
 </resources>

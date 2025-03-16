@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
 
     <application
         android:allowBackup="true"
@@ -16,16 +19,16 @@
         android:theme="@style/Theme.ProgMobileDevices"
         tools:targetApi="31">
         <activity
-            android:name=".Registration_activity_final"
+            android:name=".RegistrationActivityFinal"
             android:exported="false" />
         <activity
-            android:name=".Registration_activity_3"
+            android:name=".RegistrationActivity3"
             android:exported="false" />
         <activity
-            android:name=".Registration_activity_2"
+            android:name=".RegistrationActivity2"
             android:exported="false" />
         <activity
-            android:name=".Registration_activity_1"
+            android:name=".RegistrationActivity1"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
@@ -42,6 +45,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
         <activity
             android:name=".LoadScreenActivity"
             android:exported="true">

@@ -6,7 +6,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.progmobiledevices.databinding.ActivityNoInternetConnectionBinding
 import com.example.progmobiledevices.databinding.ActivitySelectRegistrationOrLoginBinding
 
 class SelectRegistrationOrLogin : AppCompatActivity() {
@@ -33,7 +32,7 @@ class SelectRegistrationOrLogin : AppCompatActivity() {
         }
 
         binding.buttonRegistration.setOnClickListener { // Используем Binding для доступа к кнопке
-            val intent = Intent(this, Registration_activity_1::class.java)
+            val intent = Intent(this, RegistrationActivity1::class.java)
             startActivity(intent)
             finish()
         }

@@ -5,12 +5,12 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Registration_activity_1">
+    tools:context=".RegistrationActivity1">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout4"
         android:layout_width="342dp"
-        android:layout_height="415dp"
+        android:layout_height="440dp"
         android:layout_marginTop="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,9 +88,11 @@
             app:layout_constraintTop_toBottomOf="@+id/email_title">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailInnerTextField"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
+                android:layout_height="50dp"
                 android:fontFamily="@font/montserrat_medium"
+                android:background="@drawable/edit_text_background"
                 android:inputType="textVisiblePassword"
                 android:textColor="@color/gray"
                 android:textSize="14sp" />
@@ -109,11 +111,15 @@
             app:boxCornerRadiusTopStart="8dp"
             app:endIconMode="password_toggle"
             app:hintEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/password_title">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordInnerTextField"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text_background"
                 android:fontFamily="@font/montserrat_medium"
                 android:inputType="textPassword"
                 android:textColor="@color/gray"
@@ -133,11 +139,15 @@
             app:boxCornerRadiusTopStart="8dp"
             app:endIconMode="password_toggle"
             app:hintEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/password_retry_title">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordRetryInnerTextField"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text_background"
                 android:fontFamily="@font/montserrat_medium"
                 android:inputType="textPassword"
                 android:textColor="@color/gray"
@@ -167,7 +177,7 @@
             app:layout_constraintTop_toBottomOf="@+id/passwordRetryTextField">
 
             <CheckBox
-                android:id="@+id/termsCheckBox"
+                android:id="@+id/checkbox_approve"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
 
@@ -196,7 +206,8 @@
         android:text="@string/registration_activity_button_next"
         android:textColor="@color/white"
         android:textSize="14sp"
-        app:backgroundTint="@color/purple"
+        app:backgroundTint="@color/button_color"
+        android:enabled="false"
         app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
