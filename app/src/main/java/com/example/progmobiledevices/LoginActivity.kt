@@ -1,6 +1,5 @@
 package com.example.progmobiledevices
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -10,8 +9,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.isEmpty
-import androidx.core.view.isNotEmpty
 import com.example.progmobiledevices.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -31,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.registrationView.setOnClickListener {
-            val intent = Intent(this, Registration_activity_1::class.java)
+            val intent = Intent(this, RegistrationActivity1::class.java)
             startActivity(intent)
             finish()
         }

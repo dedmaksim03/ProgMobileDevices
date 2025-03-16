@@ -5,10 +5,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.progmobiledevices.databinding.ActivityRegistration3Binding
 import com.example.progmobiledevices.databinding.ActivityRegistrationFinalBinding
 
-class Registration_activity_final : AppCompatActivity() {
+class RegistrationActivityFinal : AppCompatActivity() {
     private lateinit var binding: ActivityRegistrationFinalBinding // Объявляем Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +24,7 @@ class Registration_activity_final : AppCompatActivity() {
         setContentView(binding.root)
 
 //        binding.buttonNext.setOnClickListener { // Используем Binding для доступа к кнопке
-//            val intent = Intent(this, Registration_activity_2::class.java)
+//            val intent = Intent(this, RegistrationActivity2::class.java)
 //            startActivity(intent)
 //            finish() // Закрываем NoInternetActivity
 //        }

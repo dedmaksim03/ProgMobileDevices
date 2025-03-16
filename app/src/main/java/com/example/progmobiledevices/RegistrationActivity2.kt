@@ -5,17 +5,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Patterns
-import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.progmobiledevices.databinding.ActivityRegistration1Binding
 import com.example.progmobiledevices.databinding.ActivityRegistration2Binding
 import java.util.Calendar
 
-class Registration_activity_2 : AppCompatActivity() {
+class RegistrationActivity2 : AppCompatActivity() {
     private lateinit var binding: ActivityRegistration2Binding // Объявляем Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,13 +29,13 @@ class Registration_activity_2 : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonNext.setOnClickListener { // Используем Binding для доступа к кнопке
-            val intent = Intent(this, Registration_activity_3::class.java)
+            val intent = Intent(this, RegistrationActivity3::class.java)
             startActivity(intent)
             finish()
         }
 
         binding.arrowBack.setOnClickListener {
-            val intent = Intent(this, Registration_activity_1::class.java)
+            val intent = Intent(this, RegistrationActivity1::class.java)
             startActivity(intent)
             finish()
         }
@@ -124,7 +121,6 @@ class Registration_activity_2 : AppCompatActivity() {
 
             override fun afterTextChanged(s: Editable?) {}
         })
-
 
         binding.dateInnerTextField.setOnClickListener {
             val calendar = Calendar.getInstance()

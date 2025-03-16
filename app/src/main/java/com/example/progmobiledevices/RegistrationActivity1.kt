@@ -9,10 +9,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.progmobiledevices.databinding.ActivityNoInternetConnectionBinding
 import com.example.progmobiledevices.databinding.ActivityRegistration1Binding
 
-class Registration_activity_1 : AppCompatActivity() {
+class RegistrationActivity1 : AppCompatActivity() {
     private lateinit var binding: ActivityRegistration1Binding // Объявляем Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +28,7 @@ class Registration_activity_1 : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonNext.setOnClickListener { // Используем Binding для доступа к кнопке
-            val intent = Intent(this, Registration_activity_2::class.java)
+            val intent = Intent(this, RegistrationActivity2::class.java)
             startActivity(intent)
             finish()
         }
