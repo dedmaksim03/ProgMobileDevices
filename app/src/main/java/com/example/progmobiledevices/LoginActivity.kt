@@ -33,6 +33,12 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
 
+        binding.buttonLogin.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         binding.buttonLogin.isEnabled = false
 
         var isPasswordValid = false
