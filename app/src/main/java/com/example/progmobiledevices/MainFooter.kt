@@ -49,14 +49,22 @@ class MainFooter : Fragment() {
 
         val settings: ImageView = view.findViewById(R.id.settings)
         val home: ImageView = view.findViewById(R.id.home)
+        val bookmark: ImageView = view.findViewById(R.id.bookmark)
 
         settings.setOnClickListener {
             listener?.onFooterClicked("settings")
+            settings.setImageResource(R.drawable.settings_active)
+            bookmark.setImageResource(R.drawable.bookmark)
+            home.setImageResource(R.drawable.home)
         }
 
         home.setOnClickListener {
             listener?.onFooterClicked("home")
+            settings.setImageResource(R.drawable.settings)
+            bookmark.setImageResource(R.drawable.bookmark)
+            home.setImageResource(R.drawable.home_active)
         }
+
 
 
         return view

@@ -1,10 +1,16 @@
 package com.example.progmobiledevices
 
 import android.os.Bundle
+import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,8 +39,40 @@ class HomePageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_page, container, false)
+        val view = inflater.inflate(R.layout.fragment_home_page, container, false)
+
+        val search: EditText = view.findViewById(R.id.search)
+
+        // Дополнительная логика, если нужна
+        search.setOnKeyListener { _, keyCode, event ->
+            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+                // Выполните поиск
+                return@setOnKeyListener true
+            }
+            return@setOnKeyListener false
+        }
+
+        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
+
+        val json = loadJSONFromAsset("cars.json")
+        print(json)
+        val cars = parseJsonToCars(json)
+
+        val adapter = CarAdapter(cars)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = adapter
+        return view
+    }
+
+    private fun loadJSONFromAsset(filename: String): String {
+        val inputStream = requireContext().assets.open(filename)
+        return inputStream.bufferedReader().use { it.readText() }
+    }
+
+    private fun parseJsonToCars(json: String): List<Car> {
+        val gson = Gson()
+        val type = object : TypeToken<List<Car>>() {}.type
+        return gson.fromJson(json, type)
     }
 
     companion object {

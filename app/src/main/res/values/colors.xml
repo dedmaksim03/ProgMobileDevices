@@ -11,4 +11,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="purple">#2A1246</color>
     <color name="purple_presses">#54238c</color>
+    <color name="pink_background">#F9F5FF</color>
 </resources>

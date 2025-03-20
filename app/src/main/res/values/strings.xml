@@ -74,4 +74,11 @@
     <string name="registration_activity_final_title">Пользуйтесь с удовольствием</string>
     <string name="registration_activity_final_title_2">Поздравляем</string>
     <string name="registration_activity_final_subtitle">Вы успешно зарегистрировались.  Обработка ваших персональных данных займет около двух часов. Спасибо за ожидание.</string>
+
+    <string name="home_page_fragment_title">Давайте найдем автомобиль</string>
+    <string name="home_page_fragment_search_title">Введите марку автомобиля</string>
+
+    <string name="car_item_book_button_title">Забронировать</string>
+    <string name="car_item_about_button_title">Детали</string>
+
 </resources>

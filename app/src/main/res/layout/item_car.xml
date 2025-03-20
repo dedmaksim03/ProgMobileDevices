@@ -1,0 +1,175 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="260dp"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:layout_margin="10dp"
+    android:background="@drawable/black_stroke"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout9"
+        android:layout_width="350dp"
+        android:layout_height="174dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/carImage"
+            android:layout_width="174dp"
+            android:layout_height="111dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/carName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Название автомобиля"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/carImage" />
+
+        <TextView
+            android:id="@+id/carBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Марка автомобиля"
+            android:textSize="14sp"
+            android:textColor="@color/gray_inactive"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carName" />
+
+        <TextView
+            android:id="@+id/carPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_marginTop="10dp"
+            android:text="Цена"
+            android:textColor="@color/purple"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carBrand" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="210dp"
+            android:layout_height="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carPrice">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/gearbox" />
+
+            <TextView
+                android:id="@+id/carTransmission"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:text="A/T"
+                android:textSize="16sp"
+                android:fontFamily="@font/montserrat_medium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/carTransmission"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/fuel" />
+
+            <TextView
+                android:id="@+id/carFuel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Тип топлива"
+                android:layout_marginStart="5dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/montserrat_medium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="в день"
+            android:textColor="@color/gray_inactive"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/carPrice"
+            app:layout_constraintStart_toEndOf="@+id/carPrice"
+            app:layout_constraintTop_toTopOf="@+id/carPrice"
+            app:layout_constraintVertical_bias="0.666" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="360dp"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout9">
+
+        <Button
+            android:id="@+id/button_book"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_color"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/car_item_book_button_title"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+
+            app:cornerRadius="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray_stroke"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/car_item_about_button_title"
+            android:textColor="@color/black_text"
+            android:textSize="14sp"
+
+            app:cornerRadius="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
