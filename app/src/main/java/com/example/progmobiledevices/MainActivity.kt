@@ -19,10 +19,14 @@ class MainActivity : AppCompatActivity(), MainFooter.OnFooterClickListener {
             insets
         }
 
+        loadFragment(HomePageFragment())
+
         val searchFragment = supportFragmentManager.findFragmentById(R.id.footer) as MainFooter
+//        val settingsFragment = supportFragmentManager.findFragmentById(R.id.homePage) as MainSettingsFragment
 
         // Устанавливаем слушатель
         searchFragment.setOnFooterClickListener(this)
+//        settingsFragment.setOnSettingsClickListener(this)
 
 //        supportFragmentManager.beginTransaction()
 //            .add(R.id.main, HomePageFragment())
@@ -38,9 +42,13 @@ class MainActivity : AppCompatActivity(), MainFooter.OnFooterClickListener {
             "home" -> newFragment = HomePageFragment()
         }
 
-        val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.homePage, newFragment)
-        transaction.addToBackStack(null) // Добавляем в BackStack для возможности возврата
-        transaction.commit()
+        loadFragment(newFragment)
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment) // Контейнер для фрагментов
+            .addToBackStack(null)
+            .commit()
     }
 }

@@ -81,4 +81,27 @@
     <string name="car_item_book_button_title">Забронировать</string>
     <string name="car_item_about_button_title">Детали</string>
 
+    <string name="settings_main_title">Настройки</string>
+    <string name="settings_main_profile_title">Иван Иванов</string>
+    <string name="settings_main_profile_subtitle">ivan@mtuci.ru</string>
+    <string name="settings_main_book_title">Мои бронирования</string>
+    <string name="settings_main_theme_title">Тема</string>
+    <string name="settings_main_notification_title">Уведомления</string>
+    <string name="settings_main_money_title">Подключи свой автомобиль</string>
+    <string name="settings_main_help_title">Помощь</string>
+    <string name="settings_main_mail_title">Пригласи друга</string>
+
+    <string name="settings_profile_title">Профиль</string>
+    <string name="settings_profile_profile_title">Иван Иванов</string>
+    <string name="settings_profile_profile_subtitle">Присоединился в июле 2024</string>
+    <string name="settings_profile_mail_subtitle">ivanov@mtuci.ru</string>
+    <string name="settings_profile_mail_title">Электронная почта</string>
+    <string name="settings_profile_password_title">Пароль</string>
+    <string name="settings_profile_password_subtitle">Поменять пароль</string>
+    <string name="settings_profile_gender_title">Пол</string>
+    <string name="settings_profile_gender_subtitle">Мужской</string>
+    <string name="settings_profile_gmail_title">Google</string>
+    <string name="settings_profile_gmail_subtitle">ivanov@gmail.com</string>
+    <string name="settings_profile_logout_title">Выйти из профиля</string>
+
 </resources>

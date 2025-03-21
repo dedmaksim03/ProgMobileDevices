@@ -44,9 +44,17 @@ class HomePageFragment : Fragment() {
         val search: EditText = view.findViewById(R.id.search)
 
         // Дополнительная логика, если нужна
-        search.setOnKeyListener { _, keyCode, event ->
+        search.setOnKeyListener { message, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
-                // Выполните поиск
+                val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
+
+                val json = loadJSONFromAsset("cars.json")
+                print(json)
+                val cars = parseJsonToCars(json)
+
+                val adapter = CarAdapter(cars)
+                recyclerView.layoutManager = LinearLayoutManager(requireContext())
+                recyclerView.adapter = adapter
                 return@setOnKeyListener true
             }
             return@setOnKeyListener false
