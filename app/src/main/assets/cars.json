@@ -1,0 +1,34 @@
+[
+  {
+    "name": "S 500 Sedan",
+    "brand": "Mercedes-Benz",
+    "price": "2500₽",
+    "image": "car1",
+    "transmission": "A/T",
+    "fuel": "Бензин"
+  },
+  {
+    "name": "BMW X7",
+    "brand": "BMW",
+    "price": "3000₽",
+    "image": "car1",
+    "transmission": "A/T",
+    "fuel": "Дизель"
+  },
+  {
+    "name": "BMW X7",
+    "brand": "BMW",
+    "price": "3000₽",
+    "image": "car1",
+    "transmission": "A/T",
+    "fuel": "Дизель"
+  },
+  {
+    "name": "BMW X7",
+    "brand": "BMW",
+    "price": "3000₽",
+    "image": "car1",
+    "transmission": "A/T",
+    "fuel": "Дизель"
+  }
+]

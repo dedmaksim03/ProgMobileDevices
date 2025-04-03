@@ -1,5 +1,6 @@
 package com.example.progmobiledevices
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import androidx.fragment.app.Fragment
@@ -27,6 +28,7 @@ class HomePageFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -46,15 +48,21 @@ class HomePageFragment : Fragment() {
         // Дополнительная логика, если нужна
         search.setOnKeyListener { message, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
-                val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
-
                 val json = loadJSONFromAsset("cars.json")
-                print(json)
-                val cars = parseJsonToCars(json)
+//                print(json)
+                val query = search.text.toString() // Получаем текст запроса
+                print("Запрос: $query")
+                val cars = parseJsonToCars(json, query)
+                loadFragment(HomePageLoadingScreenFragment.newInstance(cars))
+//                val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
+//
+//                val json = loadJSONFromAsset("cars.json")
+//                print(json)
 
-                val adapter = CarAdapter(cars)
-                recyclerView.layoutManager = LinearLayoutManager(requireContext())
-                recyclerView.adapter = adapter
+//
+//                val adapter = CarAdapter(cars)
+//                recyclerView.layoutManager = LinearLayoutManager(requireContext())
+//                recyclerView.adapter = adapter
                 return@setOnKeyListener true
             }
             return@setOnKeyListener false
@@ -81,6 +89,21 @@ class HomePageFragment : Fragment() {
         val gson = Gson()
         val type = object : TypeToken<List<Car>>() {}.type
         return gson.fromJson(json, type)
+    }
+
+    private fun parseJsonToCars(json: String, filterQuery: String): List<Car> {
+        val gson = Gson()
+        val type = object : TypeToken<List<Car>>() {}.type
+        val carList: List<Car> = gson.fromJson(json, type)
+
+        return carList.filter { it.name == filterQuery }
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null) // Добавляем в BackStack, чтобы можно было вернуться назад
+            .commit()
     }
 
     companion object {
