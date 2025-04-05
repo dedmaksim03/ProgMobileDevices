@@ -1,11 +1,16 @@
 package com.example.progmobiledevices
 
 import android.os.Bundle
+import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import android.widget.EditText
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -14,23 +19,13 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [MainFooter.newInstance] factory method to
+ * Use the [SavedFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class MainFooter : Fragment() {
+class SavedFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
-    interface OnFooterClickListener {
-        fun onFooterClicked(page: String)
-    }
-
-    private var listener: OnFooterClickListener? = null
-
-    fun setOnFooterClickListener(listener: OnFooterClickListener) {
-        this.listener = listener
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,41 +33,35 @@ class MainFooter : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_main_footer, container, false)
+        val view = inflater.inflate(R.layout.fragment_saved, container, false)
 
-        val settings: ImageView = view.findViewById(R.id.settings)
-        val home: ImageView = view.findViewById(R.id.home)
-        val bookmark: ImageView = view.findViewById(R.id.bookmark)
+        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
 
-        settings.setOnClickListener {
-            listener?.onFooterClicked("settings")
-            settings.setImageResource(R.drawable.settings_active)
-            bookmark.setImageResource(R.drawable.bookmark)
-            home.setImageResource(R.drawable.home)
-        }
+        val json = loadJSONFromAsset("cars.json")
+        print(json)
+        val cars = parseJsonToCars(json)
 
-        home.setOnClickListener {
-            listener?.onFooterClicked("home")
-            settings.setImageResource(R.drawable.settings)
-            bookmark.setImageResource(R.drawable.bookmark)
-            home.setImageResource(R.drawable.home_active)
-        }
-
-        bookmark.setOnClickListener {
-            listener?.onFooterClicked("bookmark")
-            settings.setImageResource(R.drawable.settings)
-            bookmark.setImageResource(R.drawable.bookmark_active)
-            home.setImageResource(R.drawable.home)
-        }
-
+        val adapter = CarAdapter(cars)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = adapter
         return view
+    }
+
+    private fun loadJSONFromAsset(filename: String): String {
+        val inputStream = requireContext().assets.open(filename)
+        return inputStream.bufferedReader().use { it.readText() }
+    }
+
+    private fun parseJsonToCars(json: String): List<Car> {
+        val gson = Gson()
+        val type = object : TypeToken<List<Car>>() {}.type
+        return gson.fromJson(json, type)
     }
 
     companion object {
@@ -82,12 +71,12 @@ class MainFooter : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment MainFooter.
+         * @return A new instance of fragment SavedFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            MainFooter().apply {
+            SavedFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

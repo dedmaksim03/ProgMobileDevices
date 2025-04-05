@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity(), MainFooter.OnFooterClickListener {
         when (page){
             "settings" -> newFragment = MainSettingsFragment()
             "home" -> newFragment = HomePageFragment()
+            "bookmark" -> newFragment = SavedFragment()
         }
 
         loadFragment(newFragment)

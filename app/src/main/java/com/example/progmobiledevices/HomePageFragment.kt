@@ -49,20 +49,10 @@ class HomePageFragment : Fragment() {
         search.setOnKeyListener { message, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
                 val json = loadJSONFromAsset("cars.json")
-//                print(json)
                 val query = search.text.toString() // Получаем текст запроса
                 print("Запрос: $query")
                 val cars = parseJsonToCars(json, query)
                 loadFragment(HomePageLoadingScreenFragment.newInstance(cars))
-//                val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
-//
-//                val json = loadJSONFromAsset("cars.json")
-//                print(json)
-
-//
-//                val adapter = CarAdapter(cars)
-//                recyclerView.layoutManager = LinearLayoutManager(requireContext())
-//                recyclerView.adapter = adapter
                 return@setOnKeyListener true
             }
             return@setOnKeyListener false
